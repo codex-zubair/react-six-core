@@ -18,7 +18,10 @@ function App() {
 
       {/* Second Core creating Component */}
       <Users></Users>
-      <Users></Users>
+      <Users name='Manna Dey' email='mannadey@gmail.com' comment="50 later"></Users>
+
+
+      {/* Lets Add Multiple  */}
 
 
     </div>
@@ -27,13 +30,13 @@ function App() {
 
 
 
-const Users = () => {
+const Users = (props) => {
 
   return (
     <div className='users' style={{marginTop:'10px', border:'2px solid black', borderRadius: '10px', margin:'10px'}}>
-      <h3>User Name: </h3>
-      <h4>User Email: </h4>
-      <p>Comments</p>
+      <h3>{props.name} </h3>
+      <h4>Email: {props.email}</h4>
+      <p>{props.comment}</p>
     </div>
   )
 }
