@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 
+
+// internal CSS will not work
+// const internal = {
+//   border:'2px solid black'
+// }
+
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      {/* Adding CSS Style in three ways into Heading... */}
+
+      <h1 className='heading' style={{backgroundColor: 'red',color:'white'}}>User Data Base</h1>
+     
+
     </div>
   );
 }
