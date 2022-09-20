@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+
+
 
 
 // internal CSS will not work
@@ -36,6 +39,17 @@ function App() {
 
   return (
     <div className="App">
+
+     {/* Lets Add Counter TO Check User State */}
+     <Counter></Counter>
+
+
+
+
+    {/* Lets load API Data */}
+
+    
+
       
       {/* Adding CSS Style in three ways into Heading... */}
 
@@ -53,12 +67,43 @@ function App() {
       <Users name='Manna Dey' email='mannadey@gmail.com' comment="50 later"></Users>
 
 
-      {/* Lets Add Multiple  */}
+
+
+     
 
 
     </div>
   );
 }
+
+
+
+// Let Make a Counter.
+const Counter = ()=>{
+  // ! Once we declare or change that will stay loaded until we closed the application totally
+  const [counter, setState] = useState(50);
+  
+  // setState(30);
+  // console.log(counter);
+
+
+  // Setup for increment and Decrement value for states 
+  const increment = ()=> setState(counter+1);
+  const decrement = ()=> setState(counter-1);
+
+
+
+  return (
+    <div>
+      <h1>Counter</h1>
+      <p>{counter}</p>
+      <button onClick={increment}>Increase Value</button>
+      <button onClick={decrement} style={{marginLeft: '5px'}}>Decrease Value</button>
+    </div>
+  )
+}
+
+
 
 
 
