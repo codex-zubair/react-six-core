@@ -30,25 +30,45 @@
 
 
 /* Heading CSS  External*/
-.heading
-{
+.heading {
   border: 1.5px solid black;
   border-radius: 5px;
   margin: 20px;
 }
 
 
-.users
-{
+.user-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+.users {
   background-color: rgb(232, 171, 171);
 }
+
+
+
 
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+/* Set up Screen Break Point For Mobile and Medium Device */
+@media screen and (max-width: 900px) {
+
+  .user-section {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
 }

@@ -57,7 +57,9 @@ function App() {
 
 
       {/* Component of User Data */}
+      <section className='user-section'>
       <UsersFromAPI></UsersFromAPI>
+      </section>
 
 
 
