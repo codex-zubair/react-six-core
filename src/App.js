@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
@@ -40,20 +40,25 @@ function App() {
   return (
     <div className="App">
 
-     {/* Lets Add Counter TO Check User State */}
-     <Counter></Counter>
+      {/* Lets Add Counter TO Check User State */}
+      <Counter></Counter>
 
 
 
 
-    {/* Lets load API Data */}
+      {/* Lets load API Data */}
 
-    
 
-      
+
+
       {/* Adding CSS Style in three ways into Heading... */}
 
       <h1 className='heading' style={{ backgroundColor: 'red', color: 'white' }}>User Data Base</h1>
+
+
+      {/* Component of User Data */}
+      <UsersFromAPI></UsersFromAPI>
+
 
 
 
@@ -69,7 +74,7 @@ function App() {
 
 
 
-     
+
 
 
     </div>
@@ -79,17 +84,19 @@ function App() {
 
 
 // Let Make a Counter.
-const Counter = ()=>{
+const Counter = () => {
   // ! Once we declare or change that will stay loaded until we closed the application totally
+
+  // useState is a Hook (function) that allows you to have state variables in functional components. You pass the initial state to this function and it returns a variable with the current state value (not necessarily the initial state) and another function to update this value.
   const [counter, setState] = useState(50);
-  
+
   // setState(30);
   // console.log(counter);
 
 
   // Setup for increment and Decrement value for states 
-  const increment = ()=> setState(counter+1);
-  const decrement = ()=> setState(counter-1);
+  const increment = () => setState(counter + 1);
+  const decrement = () => setState(counter - 1);
 
 
 
@@ -98,10 +105,35 @@ const Counter = ()=>{
       <h1>Counter</h1>
       <p>{counter}</p>
       <button onClick={increment}>Increase Value</button>
-      <button onClick={decrement} style={{marginLeft: '5px'}}>Decrease Value</button>
+      <button onClick={decrement} style={{ marginLeft: '5px' }}>Decrease Value</button>
     </div>
   )
 }
+
+
+
+// Start
+
+// ! Will get user Values by help of useState and useEffect start...
+const UsersFromAPI = () => {
+
+  // !Storing User DATA by help of useState. TO USE DATA INSIDE THIS FUNCTION.
+  const [users, setUsers] = useState([]);
+
+
+  // We Got the Api Data... NOW NEED TO STORE DATA SOMEWHERE TO USE.. INSIDE THIS FUNCTION...
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/comments').then(response => response.json()).then(users => setUsers(users))
+  }, [])
+
+  return (
+      users.map(user=> <Users name={user.name} email={user.email} comment={user.body}></Users>)  
+  )
+}
+
+// ! Will get user Values by help of useState and useEffect End...
+
+// End
 
 
 
